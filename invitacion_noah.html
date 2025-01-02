@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación - Noah</title>
+    <style>
+        /* Asegura que el body ocupe toda la pantalla */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Fondo con imagen que cubra toda la pantalla */
+        body {
+            background-color: #000000; /* Fondo negro como respaldo si la imagen no carga */
+            background-image: url('img/2d61d3f1c17679e71eee71da07039a09.jpg'); /* Ruta de tu imagen de fondo */
+            background-size: cover; /* La imagen cubre toda la pantalla */
+            background-position: center center; /* La imagen está centrada */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 5rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-top: 100px;
+            color: #FF0000;
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+        }
+
+        .countdown {
+            font-size: 3rem;
+            margin-top: 50px;
+            color: #FF4500;
+            text-shadow: 0 0 10px rgba(255, 69, 0, 0.7);
+        }
+
+        .date {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            color: #A9A9A9;
+        }
+
+        .message {
+            font-size: 2rem;
+            margin-top: 50px;
+            color: #FFD700;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .image {
+            margin-top: 30px;
+        }
+
+        img {
+            width: 300px;
+            height: auto;
+            filter: brightness(0.5);
+        }
+
+        /* Estilo para los botones */
+        .button {
+            font-size: 1.2rem; /* Reducido el tamaño de los botones */
+            padding: 10px 20px; /* Botones más pequeños */
+            margin: 10px;
+            background-color: transparent;
+            border: 2px solid #FF0000; /* Borde rojo */
+            color: #FF0000; /* Color del texto igual al título */
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background-color: #FF0000;
+            color: white;
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.7); /* Mismo resplandor que el título */
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        .flicker {
+            animation: flicker 1.5s infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="flicker">NOAH</h1>
+    <div class="container">
+        <div class="countdown" id="countdown"></div>
+        <div class="date">
+            <p>El gran día es el 18 de enero de 2025. ¡No faltes!</p>
+        </div>
+
+        <div class="message">
+            <p>Prepárate para una fiesta de pesadilla...</p>
+        </div>
+
+        <!-- Botón para confirmar asistencia -->
+        <button class="button" onclick="confirmAsistencia()">Confirmar Asistencia</button>
+
+        <!-- Botón para obtener direcciones con Google Maps -->
+        <button class="button" onclick="verComoLlegar()">¿Cómo llegar?</button>
+
+        
+    </div>
+
+    <script>
+        // Función para la confirmación de asistencia
+        function confirmAsistencia() {
+            <a href="https://w.app/WVZMcA">asistencia.</a>
+
+            alert("¡Gracias por confirmar tu asistencia, nos vemos el 18 de enero!");
+        }
+
+        // Función para abrir Google Maps con la dirección
+        function verComoLlegar() {
+            // Aquí debes colocar la dirección real de tu fiesta
+            const direccion = "https://maps.app.goo.gl/tNmtBkqsFXCaSQvs9?g_st=aw"; // Cambia esto por la dirección real
+            window.open(direccion, "_blank");
+        }
+
+        // Fecha objetivo (18 de enero de 2025)
+        const targetDate = new Date("Jan 18, 2025 00:00:00").getTime();
+
+        // Actualizar la cuenta regresiva cada segundo
+        const countdownInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const timeLeft = targetDate - now;
+
+            // Cálculos para días, horas, minutos y segundos
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            // Mostrar la cuenta regresiva en el HTML
+            document.getElementById("countdown").innerHTML = 
+                days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+            // Si la cuenta regresiva termina
+            if (timeLeft <= 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("countdown").innerHTML = "¡Es hora de la fiesta!";
+            }
+        }, 1000);
+    </script>
+    
+</body>
+</html>
